@@ -225,8 +225,12 @@ function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'rotator' => 'rotator'
  * 'noon' => 'noon'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  let resStr = '';
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    resStr = `${resStr}${str[i]}`;
+  }
+  return resStr;
 }
 
 
