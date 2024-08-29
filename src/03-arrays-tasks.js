@@ -588,8 +588,18 @@ function getElementByIndexes(/* arr, indexes */) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8 ]   =>  [ 5, 6, 7, 8, 1, 2, 3, 4 ]
  *
  */
-function swapHeadAndTail(/* arr */) {
-  throw new Error('Not implemented');
+function swapHeadAndTail(arr) {
+  if (arr.length === 1) { return arr; }
+  const middle = arr % 2 === 0 ? (arr.length / 2) : Math.floor(arr.length / 2);
+  if (arr.length % 2 === 0) {
+    const delElementsTail = arr.splice(0, middle); // массив из удалённых элементов
+    const res = arr.concat(delElementsTail);
+    return res;
+  }
+  const delElementsTail = arr.splice(0, middle); // массив из удалённых элементов
+  const delElementsHead = arr.splice(1);
+  const res = delElementsHead.concat(arr, delElementsTail);
+  return res;
 }
 
 
