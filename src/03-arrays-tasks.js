@@ -281,8 +281,22 @@ function getSecondItems(arr) {
  *  [ 'a', 'b', 'c', null ] => [ 'a', 'b','b', 'c','c','c',  null,null,null,null ]
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
+function propagateItemsByPositionIndex(arr) {
+  // решение - но циклом -  не подходит
+  // const res = [];
+  // for (let i = 0; i < arr.length; i += 1) {
+  //   for (let y = 0; y <= i; y += 1) {
+  //     res.push(arr[i]);
+  //   }
+  // }
+  // return res;
+
+  // условие для arr
+  if (arr.length <= 1) {
+    return arr;
+  }
+  const result = arr.map((item, index) => (new Array(index + 1).fill(item)));
+  return result.flat();
 }
 
 
