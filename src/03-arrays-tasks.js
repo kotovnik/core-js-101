@@ -598,7 +598,7 @@ function getElementByIndexes(arr, indexes) {
   // const count = indexes.length;
   // let result = arr[indexes[0]];
   // for (let i = 0; i < count - 1; i += 1) {
-  //   result = result[indexes[i + 1]];
+  //  result = result[indexes[i + 1]];
   // } return result;
   const result = indexes.reduce((array, count) => array[count], arr);
   return result;
