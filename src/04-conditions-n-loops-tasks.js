@@ -186,7 +186,6 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-  // throw new Error('Not implemented');
   let result = null;
   const arr = str.split('');
   for (let i = 0; i < arr.length; i += 1) {
@@ -293,8 +292,21 @@ function reverseInteger(num) {
  *   5436468789016589 => false
  *   4916123456789012 => false
  */
-function isCreditCardNumber(/* ccn */) {
-  throw new Error('Not implemented');
+function isCreditCardNumber(ccn) {
+  let sumOfDigits = 0;
+  const str = String(ccn);
+  for (let i = str.length - 2; i >= 0; i -= 2) {
+    let digit = Number(str[i]) * 2;
+    if (digit >= 10) {
+      digit -= 9;
+    }
+    sumOfDigits += digit;
+  }
+  for (let i = str.length - 1; i >= 0; i -= 2) {
+    const digit = Number(str[i]);
+    sumOfDigits += digit;
+  }
+  return (sumOfDigits % 10 === 0);
 }
 
 /**
